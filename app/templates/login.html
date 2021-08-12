@@ -1,0 +1,49 @@
+{% extends 'bootstrap/base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block head %}
+
+    {{ super() }}
+    <title>
+        {% block title %}App Tareas | Login{% endblock title %}
+    </title>
+    <link rel="stylesheet", href="{{ url_for('static', filename='css/login.css') }}">
+
+{% endblock head %}
+
+{% block content %}
+    <div class="container signup" id="login-container">
+        <div class="container">
+
+            {% with messages = get_flashed_messages(with_categories=true)  %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} alert-dismiss">
+                        <button type="button" 
+                                data-dismiss="alert"
+                                class="close">&times;</button>
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endwith %}
+            
+            <div class="col-lg-6" id="label" text-center>
+                <h3>Iniciar sesión</h3>
+                {{ wtf.form_field(login_form.username, class="form-control", 
+                    placeholder='Nombre de usuario')}}
+                {{ wtf.form_field(login_form.password, class="form-control",
+                    placeholder='Contraseña') }}
+                {{ wtf.form_field(login_form.submit)}}
+                <br>
+                ¿No tiene una cuenta?
+                <a href="{{ url_for('auth.signup') }}" 
+                    class="btn d-inline-block btn btn-primary">
+                    Registrarme
+                </a>
+            </div>
+            
+        </div>
+
+
+    </div>
+
+{% endblock content %}

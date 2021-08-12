@@ -1,0 +1,25 @@
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% macro render_todo(todo) %}
+
+    <li class="list-group-item">
+
+        {{ todo.to_dict()['descripcion'] }}
+
+        {% if todo.to_dict()['done'] %}
+            <span class="badge">Hecho</span>
+        {% else %}
+            <span class="badge">No hecho</span>
+        {% endif %}
+
+        <a href="{{ url_for('set_activity', todo_id=todo.id, done=todo.to_dict()['done']) }}" 
+            class="btn d-inline-block btn btn-ligth">
+            Actalizar</a>
+
+        <a href="{{ url_for('delete', todo_id=todo.id) }}" 
+            class="btn d-inline-block btn-danger">
+            Delete</a>
+
+    </li>
+
+{% endmacro %}

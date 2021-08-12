@@ -1,0 +1,13 @@
+body{
+    font-family: sans-serif;
+    background-color: #3E3C3C;
+}
+
+img {
+    max-width: 100px;
+}
+
+h1{
+    text-align: center;
+    color: #FFF;
+}

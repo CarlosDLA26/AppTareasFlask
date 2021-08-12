@@ -1,0 +1,12 @@
+body{
+    background-color: #ffffff;
+}
+
+.control-label{
+    display: none;
+}
+
+#container_signup{
+    background-color: aqua;
+    margin-top: 50%;
+}

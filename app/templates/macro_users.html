@@ -1,0 +1,5 @@
+{% macro render_users(users) %}
+    {% for user in users %}
+        <h2>{{ user.id }}</h2>
+    {% endfor %}
+{% endmacro %}
